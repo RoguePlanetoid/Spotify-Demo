@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="Spotify.Demo.Uwp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Spotify.Demo.Uwp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" Name="Options" HorizontalAlignment="Stretch" 
+	    SelectionChanged="Options_SelectionChanged"/>
+        <ListView Grid.Row="1" Name="Display" Loaded="Display_Loaded">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="10" Height="64" Width="64" 
+				Source="{Binding Images[0].Url}"/>
+                        <HyperlinkButton VerticalAlignment="Center"	
+				Content="{Binding Name}" NavigateUri="{Binding ExternalUrls.Spotify}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <WebView Grid.RowSpan="2" Name="WebView" NavigationCompleted="WebView_NavigationCompleted"/>
+    </Grid>
+</Page>
