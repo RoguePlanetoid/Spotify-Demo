@@ -65,13 +65,13 @@ namespace Spotify.Demo.Uwp
             switch (option)
             {
                 case Option.NewReleases:
-                    Display.ItemsSource = (await client.LookupNewReleasesAsync(page: page)).Albums.Items;
+                    Display.ItemsSource = (await client.LookupNewReleasesAsync(country: "GB", page: page)).Albums.Items;
                     break;
                 case Option.FollowedArtists:
                     Display.ItemsSource = (await client.AuthLookupFollowedArtistsAsync(cursor: cursor)).Items;
                     break;
                 case Option.FeaturedPlaylists:
-	                Display.ItemsSource = (await client.LookupFeaturedPlaylistsAsync(page: page)).Playlists.Items;
+	                Display.ItemsSource = (await client.LookupFeaturedPlaylistsAsync(country: "GB", page: page)).Playlists.Items;
 	                break;
                 case Option.SavedAlbums:
 	                Display.ItemsSource = (await client.AuthLookupUserSavedAlbumsAsync(cursor: cursor)).Items.Select(x=> x.Album);
