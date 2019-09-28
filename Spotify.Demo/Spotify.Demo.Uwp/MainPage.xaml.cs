@@ -30,17 +30,17 @@ namespace Spotify.Demo.Uwp
         }
 
         private readonly ISpotifyClient client = SpotifyClientFactory.CreateSpotifyClient(
-        Settings.ClientId, Settings.ClientSecret);
+            Settings.ClientId, Settings.ClientSecret);
         private readonly Uri redirect_url = new Uri("http://example.com/callback");
-        private const string state = "hainton";
+        private const string state = "state";
 
-    public enum Option
-    {
-	    NewReleases,
-	    FeaturedPlaylists,
-	    FollowedArtists,
-	    SavedAlbums
-    }
+        public enum Option
+        {
+            NewReleases,
+            FeaturedPlaylists,
+            FollowedArtists,
+            SavedAlbums
+        }
 
         private void Display_Loaded(object sender, RoutedEventArgs e) =>
             WebView.Navigate(client.AuthUser(redirect_url, state,
@@ -71,11 +71,11 @@ namespace Spotify.Demo.Uwp
                     Display.ItemsSource = (await client.AuthLookupFollowedArtistsAsync(cursor: cursor)).Items;
                     break;
                 case Option.FeaturedPlaylists:
-	                Display.ItemsSource = (await client.LookupFeaturedPlaylistsAsync(country: "GB", page: page)).Playlists.Items;
-	                break;
+                    Display.ItemsSource = (await client.LookupFeaturedPlaylistsAsync(country: "GB", page: page)).Playlists.Items;
+                    break;
                 case Option.SavedAlbums:
-	                Display.ItemsSource = (await client.AuthLookupUserSavedAlbumsAsync(cursor: cursor)).Items.Select(x=> x.Album);
-	                break;
+                    Display.ItemsSource = (await client.AuthLookupUserSavedAlbumsAsync(cursor: cursor)).Items.Select(x => x.Album);
+                    break;
             }
         }
     }
