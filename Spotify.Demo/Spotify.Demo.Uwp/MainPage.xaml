@@ -13,16 +13,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ComboBox Grid.Row="0" Name="Options" HorizontalAlignment="Stretch" 
-	    SelectionChanged="Options_SelectionChanged"/>
+        <ComboBox Grid.Row="0" Name="Options" HorizontalAlignment="Stretch" SelectionChanged="Options_SelectionChanged"/>
         <ListView Grid.Row="1" Name="Display" Loaded="Display_Loaded">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Margin="10" Height="64" Width="64" 
-				Source="{Binding Images[0].Url}"/>
-                        <HyperlinkButton VerticalAlignment="Center"	
-				Content="{Binding Name}" NavigateUri="{Binding ExternalUrls.Spotify}"/>
+                        <Image Margin="10" Height="64" Width="64" Source="{Binding Images[0].Url}"/>
+                        <HyperlinkButton VerticalAlignment="Center"	Content="{Binding Name}" NavigateUri="{Binding ExternalUrls.Spotify}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

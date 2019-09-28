@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="d5bb5d35-6cf3-4b92-9430-83e16e8856db"
+    Name="ca309604-45b0-46f3-8737-b8d10603b0c0"
     Publisher="CN=rogue"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="d5bb5d35-6cf3-4b92-9430-83e16e8856db" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="ca309604-45b0-46f3-8737-b8d10603b0c0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Spotify.Demo.Uwp</DisplayName>
